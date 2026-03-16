@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evermourne.art — Dark Art. Handcrafted & Original.</title>
+<meta name="description" content="Original dark art on aluminum, canvas, glass, and wearables. Handcrafted limited editions and commissions from Evermourne.">
+<meta name="theme-color" content="#0a0806">
+
+<!-- Open Graph / Social Sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Evermourne.art — Dark Art. Handcrafted & Original.">
+<meta property="og:description" content="Original dark art on aluminum, canvas, glass, and wearables. Handcrafted limited editions and commissions.">
+<meta property="og:url" content="https://evermourne.art">
+<!-- Replace with your actual image when ready: <meta property="og:image" content="https://evermourne.art/images/og-preview.jpg"> -->
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Evermourne.art — Dark Art. Handcrafted & Original.">
+<meta name="twitter:description" content="Original dark art on aluminum, canvas, glass, and wearables. Handcrafted limited editions and commissions.">
+
+<!-- Favicon — replace with your actual favicon files when ready -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230a0806'/><text x='50%25' y='58%25' dominant-baseline='middle' text-anchor='middle' fill='%23c8a96e' font-size='18' font-family='serif'>E</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0a0806;--ash:#1a1612;--smoke:#2c2720;--fog:#3d3530;
+  --bone:#b8a99a;--parchment:#d4c5b5;--cream:#ede0d0;
+  --gold:#c8a96e;
+}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;overflow-x:hidden}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 2.5rem;
+  background:rgba(10,8,6,.92);border-bottom:1px solid rgba(200,169,110,.08);
+  backdrop-filter:blur(6px);
+}
+.nav-logo{font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.2em;color:var(--gold);text-decoration:none}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{color:var(--bone);font-size:.72rem;letter-spacing:.15em;text-decoration:none;text-transform:uppercase;font-family:'Cinzel',serif;transition:color .25s}
+.nav-links a:hover{color:var(--gold)}
+
+/* HERO */
+.hero{
+  position:relative;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  text-align:center;
+  padding:7rem 2rem 4.5rem;
+  overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,#2a1a0e 0%,#0d0905 55%,#050302 100%)}
+.hero-ornament{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:min(420px,72vw);opacity:.06;pointer-events:none;
+}
+.hero-content{position:relative;z-index:2}
+.eyebrow{
+  font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.3em;color:var(--gold);
+  text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.9rem;
+}
+.eyebrow::before,.eyebrow::after{content:'';display:inline-block;width:36px;height:.5px;background:var(--gold);opacity:.5}
+.hero h1{font-family:'Cinzel',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:600;letter-spacing:.18em;line-height:1;color:var(--cream)}
+.hero-sub{margin-top:1.2rem;font-size:1.05rem;letter-spacing:.02em;color:var(--bone);font-style:italic;max-width:400px;line-height:1.7}
+.hero-actions{display:flex;gap:1rem;margin-top:2rem;justify-content:center;flex-wrap:wrap}
+
+/* BUTTONS */
+.btn-primary{padding:.75rem 2rem;border:1px solid var(--gold);background:transparent;color:var(--gold);font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background .25s,color .25s;display:inline-block}
+.btn-primary:hover{background:var(--gold);color:var(--ink)}
+.btn-ghost{padding:.75rem 2rem;border:1px solid rgba(184,169,154,.25);background:transparent;color:var(--bone);font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:border-color .25s,color .25s;display:inline-block}
+.btn-ghost:hover{border-color:var(--bone);color:var(--cream)}
+
+/* FOCUS STATES */
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.btn-primary:focus-visible{background:var(--gold);color:var(--ink);outline:2px solid var(--cream);outline-offset:3px}
+.btn-ghost:focus-visible{border-color:var(--bone);color:var(--cream);outline:2px solid var(--gold);outline-offset:3px}
+.nav-links a:focus-visible,.social-links a:focus-visible,.footer-links a:focus-visible{color:var(--gold);outline:2px solid var(--gold);outline-offset:3px}
+
+/* DIVIDER */
+hr.divider{border:none;height:1px;background:linear-gradient(to right,transparent,rgba(200,169,110,.18),transparent)}
+
+/* SECTION WRAPPER */
+.section{padding:3.5rem 2.5rem;max-width:1200px;margin:0 auto}
+.section-label{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+.section-title{font-family:'Cinzel',serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:600;letter-spacing:.05em;color:var(--cream);margin-bottom:.6rem}
+.section-sub{font-size:1rem;color:var(--bone);font-style:italic;max-width:500px;line-height:1.75}
+
+/* GALLERY */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:1.8rem;background:var(--smoke)}
+.gallery-item{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer;background:var(--ash)}
+.gallery-item:first-child{grid-row:span 2;aspect-ratio:auto}
+.gallery-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;transition:transform .6s ease}
+.gallery-item:hover .gallery-placeholder{transform:scale(1.04)}
+.art-svg{width:55%;max-width:120px;opacity:.2}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,6,.88) 0%,transparent 50%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.1rem;opacity:0;transition:opacity .35s}
+.gallery-item:hover .gallery-overlay{opacity:1}
+.gallery-overlay h3{font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:.1em;color:var(--cream);text-transform:uppercase}
+.gallery-overlay p{font-size:.78rem;color:var(--bone);margin-top:.2rem}
+
+/* PRINTS */
+.prints-layout{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:start;margin-top:1.8rem}
+.print-features{list-style:none;margin-top:1rem;display:flex;flex-direction:column;gap:.7rem}
+.print-features li{display:flex;align-items:flex-start;gap:.7rem;font-size:.95rem;color:var(--bone);line-height:1.6}
+.print-features li::before{content:'✦';color:var(--gold);font-size:.6rem;margin-top:.28rem;flex-shrink:0}
+.print-cards{display:flex;flex-direction:column;gap:.8rem}
+.print-card{border:1px solid rgba(200,169,110,.13);padding:1.2rem 1.4rem;background:rgba(26,22,18,.6);position:relative;overflow:hidden;transition:border-color .25s}
+.print-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);opacity:0;transition:opacity .25s}
+.print-card:hover{border-color:rgba(200,169,110,.38)}
+.print-card:hover::before{opacity:1}
+.print-card-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.35rem}
+.print-card h3{font-family:'Cinzel',serif;font-size:.85rem;letter-spacing:.1em;color:var(--cream)}
+.print-card .price{font-family:'Cinzel',serif;font-size:1rem;color:var(--gold)}
+.print-card p{font-size:.88rem;color:var(--bone);font-style:italic;line-height:1.55}
+.print-card .sizes{margin-top:.5rem;font-size:.7rem;letter-spacing:.1em;color:rgba(184,169,154,.65);text-transform:uppercase}
+
+/* COMMISSIONS */
+.comm-full{background:var(--ash);border:1px solid rgba(200,169,110,.1);padding:2.8rem;margin-top:1.8rem;position:relative;overflow:hidden}
+.comm-full::before{content:'';position:absolute;top:-50px;left:50%;transform:translateX(-50%);width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(46,100,46,.1),transparent 70%);pointer-events:none}
+.comm-status{display:inline-flex;align-items:center;gap:.5rem;padding:.3rem 1rem;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.2rem}
+.comm-status.open{background:rgba(46,100,46,.18);border:1px solid rgba(46,100,46,.35);color:#6ab06a}
+.comm-status.closed{background:rgba(139,26,26,.18);border:1px solid rgba(139,26,26,.35);color:#d4706a}
+.comm-status::before{content:'●';font-size:.45rem;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.comm-intro{font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.03em;color:var(--cream);max-width:520px;line-height:1.85;margin-bottom:2rem}
+.comm-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:2rem}
+.comm-step{border-left:1px solid rgba(200,169,110,.18);padding-left:1rem}
+.step-num{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.28em;color:var(--gold);margin-bottom:.4rem}
+.comm-step h4{font-family:'Cinzel',serif;font-size:.82rem;color:var(--cream);margin-bottom:.3rem}
+.comm-step p{font-size:.83rem;color:var(--bone);font-style:italic;line-height:1.65}
+
+/* CONTACT */
+.contact-row{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-top:1.8rem}
+.contact-info{display:flex;flex-direction:column;gap:.7rem}
+.contact-email{font-family:'Cinzel',serif;font-size:.9rem;letter-spacing:.1em;color:var(--gold);text-decoration:none;transition:color .25s}
+.contact-email:hover{color:var(--cream)}
+.social-links{display:flex;gap:1.4rem}
+.social-links a{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.18em;color:var(--bone);text-decoration:none;text-transform:uppercase;transition:color .25s;border-bottom:1px solid rgba(184,169,154,.2);padding-bottom:.15rem}
+.social-links a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* FOOTER */
+footer{border-top:1px solid rgba(200,169,110,.08);padding:1.8rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:.2em;color:rgba(200,169,110,.3)}
+.footer-copy{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.15em;color:rgba(184,169,154,.3)}
+.footer-links{display:flex;gap:1.8rem}
+.footer-links a{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.15em;color:rgba(184,169,154,.3);text-decoration:none;text-transform:uppercase;transition:color .25s}
+.footer-links a:hover{color:rgba(200,169,110,.6)}
+
+/* SKIP LINK */
+.skip-link{position:absolute;top:-100%;left:1rem;background:var(--gold);color:var(--ink);padding:.6rem 1.2rem;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;z-index:200;border-radius:0 0 4px 4px}
+.skip-link:focus{top:0}
+
+.hamburger{display:none;cursor:pointer;padding:.3rem;background:none;border:none}
+.hamburger svg path{transition:stroke .25s}
+.hamburger:hover svg path{stroke:var(--gold)}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,8,6,.97);z-index:101;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:'Cinzel',serif;font-size:1.1rem;letter-spacing:.2em;color:var(--bone);text-decoration:none;text-transform:uppercase;transition:color .25s}
+.mobile-menu a:hover{color:var(--gold)}
+.mobile-close{position:absolute;top:1.5rem;right:1.8rem;background:none;border:none;cursor:pointer;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;color:var(--fog);text-transform:uppercase}
+
+@media(max-width:768px){
+  nav{padding:.9rem 1.5rem}
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .section{padding:2.5rem 1.5rem}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .gallery-item:first-child{grid-row:auto;aspect-ratio:3/4}
+  .prints-layout{grid-template-columns:1fr}
+  .comm-steps{grid-template-columns:1fr 1fr}
+  .comm-full{padding:2rem 1.5rem}
+  .contact-row{flex-direction:column;align-items:flex-start}
+  footer{flex-direction:column;align-items:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- Skip to content for keyboard navigation -->
+<a href="#gallery" class="skip-link">Skip to content</a>
+
+<!-- NAV -->
+<nav aria-label="Main navigation">
+  <a class="nav-logo" href="#">Evermourne</a>
+  <div class="nav-links">
+    <a href="#gallery">Gallery</a>
+    <a href="#prints">The Mourncraft</a>
+    <a href="#standing">The Standing Collection</a>
+    <a href="#commissions">Commissions</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="hamburger" onclick="openMenu()" aria-label="Open menu">
+    <svg width="28" height="22" viewBox="0 0 28 22" fill="none" aria-hidden="true">
+      <!-- Snake 1 -->
+      <path d="M1 4 C4 2, 7 5.5, 10 4 S16 2, 19 4 S23 5.5, 24.5 3.5" stroke="var(--bone)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      <path d="M24.5 3.5 L27 2" stroke="var(--bone)" stroke-width=".7" stroke-linecap="round"/>
+      <path d="M24.5 3.5 L27 4.5" stroke="var(--bone)" stroke-width=".7" stroke-linecap="round"/>
+      <!-- Snake 2 -->
+      <path d="M1 11 C4 9, 7 12.5, 10 11 S16 9, 19 11 S23 12.5, 24.5 10.5" stroke="var(--bone)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      <path d="M24.5 10.5 L27 9" stroke="var(--bone)" stroke-width=".7" stroke-linecap="round"/>
+      <path d="M24.5 10.5 L27 11.5" stroke="var(--bone)" stroke-width=".7" stroke-linecap="round"/>
+      <!-- Snake 3 -->
+      <path d="M1 18 C4 16, 7 19.5, 10 18 S16 16, 19 18 S23 19.5, 24.5 17.5" stroke="var(--bone)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      <path d="M24.5 17.5 L27 16" stroke="var(--bone)" stroke-width=".7" stroke-linecap="round"/>
+      <path d="M24.5 17.5 L27 18.5" stroke="var(--bone)" stroke-width=".7" stroke-linecap="round"/>
+    </svg>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">✕ Close</button>
+  <a href="#gallery" onclick="closeMenu()">Gallery</a>
+  <a href="#prints" onclick="closeMenu()">The Mourncraft</a>
+  <a href="#standing" onclick="closeMenu()">The Standing Collection</a>
+  <a href="#commissions" onclick="closeMenu()">Commissions</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <svg class="hero-ornament" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="200" cy="200" r="190" stroke="#c8a96e" stroke-width=".5" stroke-dasharray="4 8"/>
+    <circle cx="200" cy="200" r="158" stroke="#c8a96e" stroke-width=".3"/>
+    <line x1="200" y1="10" x2="200" y2="390" stroke="#c8a96e" stroke-width=".3"/>
+    <line x1="10" y1="200" x2="390" y2="200" stroke="#c8a96e" stroke-width=".3"/>
+    <line x1="66" y1="66" x2="334" y2="334" stroke="#c8a96e" stroke-width=".3"/>
+    <line x1="334" y1="66" x2="66" y2="334" stroke="#c8a96e" stroke-width=".3"/>
+    <polygon points="200,60 340,280 60,280" stroke="#c8a96e" stroke-width=".5" fill="none"/>
+    <polygon points="200,340 60,120 340,120" stroke="#c8a96e" stroke-width=".5" fill="none"/>
+    <circle cx="200" cy="200" r="28" stroke="#c8a96e" stroke-width=".5"/>
+  </svg>
+  <div class="hero-content">
+    <div class="eyebrow">Dark Art. Handcrafted &amp; Original.</div>
+    <h1>EVERMOURNE</h1>
+    <p class="hero-sub">Where shadow becomes pigment and stillness becomes art — dark art on objects you possess.</p>
+    <div class="hero-actions">
+      <a href="#prints" class="btn-primary">Browse the Mourncraft</a>
+      <a href="#commissions" class="btn-ghost">Commission Work</a>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<main>
+<!-- GALLERY -->
+<div class="section" id="gallery">
+  <div class="section-label">The Vault</div>
+  <h2 class="section-title">Recent Work</h2>
+  <p class="section-sub">Each piece conjured from ink, shadow, and long hours — each one its own presence.</p>
+  <div class="gallery-grid">
+
+    <!-- SLOT 1 — large feature (spans 2 rows). Replace src with your image path. -->
+    <div class="gallery-item" style="background:#110d0a">
+      <!-- To add a real image, replace the placeholder block below with:
+           <img src="images/your-image.jpg" alt="Title" style="width:100%;height:100%;object-fit:cover">
+      -->
+      <div class="gallery-placeholder">
+        <svg class="art-svg" aria-hidden="true" viewBox="0 0 120 160" fill="none">
+          <rect x="20" y="10" width="80" height="120" stroke="#c8a96e" stroke-width=".4"/>
+          <ellipse cx="60" cy="50" rx="20" ry="26" stroke="#c8a96e" stroke-width=".4"/>
+          <path d="M40 80 Q60 95 80 80" stroke="#c8a96e" stroke-width=".4" fill="none"/>
+          <path d="M30 110 L60 70 L90 110" stroke="#c8a96e" stroke-width=".3" fill="none"/>
+          <line x1="20" y1="130" x2="100" y2="130" stroke="#c8a96e" stroke-width=".3"/>
+        </svg>
+        <span style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.18em;color:rgba(200,169,110,.25);text-transform:uppercase">Your art here</span>
+      </div>
+      <div class="gallery-overlay">
+        <h3>Title Here</h3>
+        <p>Medium · Year</p>
+      </div>
+    </div>
+
+    <!-- SLOT 2 -->
+    <div class="gallery-item" style="background:#0e0c0a">
+      <div class="gallery-placeholder">
+        <svg class="art-svg" aria-hidden="true" viewBox="0 0 120 120" fill="none">
+          <circle cx="60" cy="60" r="40" stroke="#c8a96e" stroke-width=".4" stroke-dasharray="3 5"/>
+          <path d="M60 20 L80 55 L45 55 Z" stroke="#c8a96e" stroke-width=".4" fill="none"/>
+          <path d="M60 100 L80 65 L45 65 Z" stroke="#c8a96e" stroke-width=".4" fill="none"/>
+        </svg>
+      </div>
+      <div class="gallery-overlay"><h3>Title Here</h3><p>Medium · Year</p></div>
+    </div>
+
+    <!-- SLOT 3 -->
+    <div class="gallery-item" style="background:#0f0d0b">
+      <div class="gallery-placeholder">
+        <svg class="art-svg" aria-hidden="true" viewBox="0 0 120 120" fill="none">
+          <rect x="25" y="25" width="70" height="70" stroke="#c8a96e" stroke-width=".4" transform="rotate(45 60 60)"/>
+          <circle cx="60" cy="60" r="18" stroke="#c8a96e" stroke-width=".4"/>
+          <line x1="60" y1="10" x2="60" y2="110" stroke="#c8a96e" stroke-width=".3" stroke-dasharray="2 4"/>
+          <line x1="10" y1="60" x2="110" y2="60" stroke="#c8a96e" stroke-width=".3" stroke-dasharray="2 4"/>
+        </svg>
+      </div>
+      <div class="gallery-overlay"><h3>Title Here</h3><p>Medium · Year</p></div>
+    </div>
+
+    <!-- SLOT 4 -->
+    <div class="gallery-item" style="background:#0c0a08">
+      <div class="gallery-placeholder">
+        <svg class="art-svg" aria-hidden="true" viewBox="0 0 120 120" fill="none">
+          <path d="M20 100 Q60 20 100 100" stroke="#c8a96e" stroke-width=".4" fill="none"/>
+          <path d="M30 100 Q60 35 90 100" stroke="#c8a96e" stroke-width=".3" fill="none" opacity=".5"/>
+          <circle cx="60" cy="55" r="8" stroke="#c8a96e" stroke-width=".4"/>
+          <line x1="60" y1="55" x2="60" y2="100" stroke="#c8a96e" stroke-width=".4"/>
+        </svg>
+      </div>
+      <div class="gallery-overlay"><h3>Title Here</h3><p>Medium · Year</p></div>
+    </div>
+
+    <!-- SLOT 5 -->
+    <div class="gallery-item" style="background:#100e0c">
+      <div class="gallery-placeholder">
+        <svg class="art-svg" aria-hidden="true" viewBox="0 0 120 120" fill="none">
+          <polygon points="60,15 105,90 15,90" stroke="#c8a96e" stroke-width=".4" fill="none"/>
+          <polygon points="60,35 90,80 30,80" stroke="#c8a96e" stroke-width=".3" fill="none" opacity=".5"/>
+          <polygon points="60,55 75,75 45,75" stroke="#c8a96e" stroke-width=".3" fill="none" opacity=".3"/>
+          <circle cx="60" cy="65" r="4" stroke="#c8a96e" stroke-width=".3"/>
+        </svg>
+      </div>
+      <div class="gallery-overlay"><h3>Title Here</h3><p>Medium · Year</p></div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PRINTS -->
+<div class="section" id="prints">
+  <div class="section-label">The Workshop</div>
+  <h2 class="section-title">The Mourncraft</h2>
+  <div class="prints-layout">
+    <div>
+      <p class="section-sub">Each creation begins with original art, made by hand — then brought to life in whatever form it demands.</p>
+      <ul class="print-features">
+        <li>Every piece starts with an original work — nothing is stock or templated</li>
+        <li>Made by hand, one piece at a time</li>
+        <li>Limited runs — when an edition closes, it closes for good</li>
+        <li>Numbered &amp; signed on request</li>
+        <li>Ships within the United States</li>
+      </ul>
+    </div>
+    <div class="print-cards">
+      <div class="print-card">
+        <div class="print-card-header">
+          <h3>Aluminum Panels</h3>
+          <span class="price">Pricing TBD</span>
+        </div>
+        <p>Dye-sublimation on aluminum. Deep blacks, luminous highlights. Ready to hang.</p>
+        <div class="sizes">8×10 · 12×16 · 16×20 · 18×24</div>
+      </div>
+      <div class="print-card">
+        <div class="print-card-header">
+          <h3>Gallery Canvas</h3>
+          <span class="price">Pricing TBD</span>
+        </div>
+        <p>Stretched canvas with gallery wrap. Dark, textured, and ready for bare walls.</p>
+        <div class="sizes">11×14 · 16×20 · 20×24 · 24×36</div>
+      </div>
+      <div class="print-card">
+        <div class="print-card-header">
+          <h3>Wearables</h3>
+          <span class="price">Pricing TBD</span>
+        </div>
+        <p>All-over sublimation on shirts, hoodies, and totes. Art that moves with you.</p>
+        <div class="sizes">XS – 3XL · Unisex cut</div>
+      </div>
+      <div class="print-card">
+        <div class="print-card-header">
+          <h3>Mirror Etchings</h3>
+          <span class="price">Pricing TBD</span>
+        </div>
+        <p>Original designs etched directly onto mirror glass. Dark, reflective, and one of a kind.</p>
+        <div class="sizes">Small · Medium · Large</div>
+      </div>
+      <div class="print-card">
+        <div class="print-card-header">
+          <h3>Buttons</h3>
+          <span class="price">Pricing TBD</span>
+        </div>
+        <p>Pin-back buttons featuring original Evermourne artwork. Small, sharp, and hard to ignore.</p>
+        <div class="sizes">1" · 1.5" · 2.25"</div>
+      </div>
+      <div class="print-card">
+        <div class="print-card-header">
+          <h3>Original Drawings</h3>
+          <span class="price">Pricing TBD</span>
+        </div>
+        <p>Pencil and paper originals — hand drawn, signed, and shipped straight from the studio. No two alike.</p>
+        <div class="sizes">A5 · A4 · A3</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- STANDING COLLECTION -->
+<div class="section" id="standing">
+  <div class="section-label">'Till Death Do Us Part</div>
+  <h2 class="section-title">The Standing Collection</h2>
+  <p class="section-sub">Not mass produced — but always here. A curated selection of Evermourne designs kept in stock year round and refreshed seasonally.</p>
+
+  <div class="prints-layout" style="margin-top:1.8rem">
+    <div>
+      <p style="font-size:.95rem;color:var(--bone);font-style:italic;line-height:1.75;margin-bottom:1.2rem">The Standing Collection sits between the one-of-a-kind and the everyday — original Evermourne artwork on mugs, stickers, totes, and other objects built for regular life.</p>
+      <ul class="print-features">
+        <li>Original Evermourne artwork on every item — never stock imagery</li>
+        <li>Restocked seasonally — some designs retire, new ones arrive</li>
+        <li>Available year round until stock runs out</li>
+      </ul>
+    </div>
+    <div>
+      <div class="print-card" style="text-align:center;padding:2.5rem 1.4rem">
+        <p style="font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.12em;color:var(--bone);text-transform:uppercase;margin-bottom:.6rem">The Standing Collection</p>
+        <p style="font-size:.92rem;color:var(--bone);font-style:italic;line-height:1.65;margin-bottom:1.6rem">What endures changes form. See what remains.</p>
+        <!-- Replace # with your Big Cartel shop URL when ready e.g. https://yourshop.bigcartel.com -->
+        <a href="#" class="btn-primary">Enter the Collection</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- COMMISSIONS -->
+<div class="section" id="commissions">
+  <div class="section-label">Commission</div>
+  <h2 class="section-title">Original Work</h2>
+  <div class="comm-full">
+    <!-- To close commissions: change class to "comm-status closed" and text to "Commissions closed" -->
+    <div class="comm-status open" role="status" aria-label="Commissions are currently open">Commissions open</div>
+    <p class="comm-intro">Bring your vision into the dark. Work spans black ink, digital, and mixed media — portraits, conceptual pieces, and album or book art.</p>
+    <div class="comm-steps">
+      <div class="comm-step">
+        <div class="step-num">01 · Inquiry</div>
+        <h4>Send Your Vision</h4>
+        <p>Describe your concept, references, and intended use.</p>
+      </div>
+      <div class="comm-step">
+        <div class="step-num">02 · Quote</div>
+        <h4>Receive a Quote</h4>
+        <p>Pricing based on complexity, size, and use. Turnaround discussed upfront.</p>
+      </div>
+      <div class="comm-step">
+        <div class="step-num">03 · Creation</div>
+        <h4>Sketches &amp; Revisions</h4>
+        <p>Two revision rounds included. You approve before final render.</p>
+      </div>
+      <div class="comm-step">
+        <div class="step-num">04 · Delivery</div>
+        <h4>In Your Hands</h4>
+        <p>Digital works delivered as high-res files. Physical pieces shipped directly from the studio.</p>
+      </div>
+    </div>
+    <a href="mailto:sale@evermourne.art" class="btn-primary">Begin a Commission</a>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<div class="section" id="contact">
+  <div class="section-label">Reach Out</div>
+  <h2 class="section-title">Contact</h2>
+  <div class="contact-row">
+    <div class="contact-info">
+      <a href="mailto:sale@evermourne.art" class="contact-email">sale@evermourne.art</a>
+    </div>
+    <div class="social-links">
+      <!-- Replace # with your actual profile URLs -->
+      <a href="#">Instagram</a>
+      <a href="#">Etsy</a>
+      <a href="#">Ko-fi</a>
+    </div>
+  </div>
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Evermourne</span>
+  <div class="footer-links">
+    <a href="#gallery">Gallery</a>
+    <a href="#prints">The Mourncraft</a>
+    <a href="#standing">The Standing Collection</a>
+    <a href="#commissions">Commissions</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <span class="footer-copy">&copy; 2026 Evermourne. All rights reserved.</span>
+</footer>
+
+<script>
+function openMenu(){document.querySelector('.mobile-menu').classList.add('open')}
+function closeMenu(){document.querySelector('.mobile-menu').classList.remove('open')}
+document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click',closeMenu));
+</script>
+</body>
+</html>
